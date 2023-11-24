@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/html" xmlns="">
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="index.css">
+    <title>Google</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.png">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+</head>
+<body>
+<nav class="navbar navbar-expand-sm navbar-light justify-content-between">
+    <a class="navbar-brand" href="#"></a>
+    <div class="navbar-nav justify-content-end">
+        <a  class="nav-item nav-link"href="advanced-search.html">Advanced Search</a>
+        <a class="nav-item nav-link" href="https://www.gmail.com">Gmail</a>
+        <a class="nav-item nav-link" href="image-search.html">Image</a>
+        <a class="links" href="#user"><img src="https://static.thenounproject.com/png/10563-200.png" class="grid"></a>
+        <a class="links" href="#user"><button class="signbutton" type="button">Sign in</button></a>
+    </div>
+</nav>
+
+<div class="d-flex justify-content-center align-items-center container">
+    <form action="https://google.com/search">
+        <div class="flex">
+            <img src="images/googlelogo_color.png" alt="logo" class="logo">
+            <input type="text" name="q" class="search_bar" placeholder="&#xF002;" style="font-family:Arial, FontAwesome;" />
+            <div class="col-sm-12 text-center">
+                <input type="submit" name=btnG value="Google Search" class="btn-pri">
+                <input type="submit" name=btnI value="I'm Feeling Lucky" class="btn-pri">
+                <br>
+                <div class="offer">
+                    Google offered in:
+                    <a href="https://www.google.com/setprefs?sig=0_l91oMPv60l1Kf78NWSCBTRNi2N8%3D&amp;hl=si&amp;source=homepage&amp;sa=X&amp;ved=0ahUKEwi59Y385YX2AhXs4jgGHU8VB7MQ2ZgBCA4">සිංහල</a>
+                    <a href="https://www.google.com/setprefs?sig=0_l91oMPv60l1Kf78NWSCBTRNi2N8%3D&amp;hl=ta&amp;source=homepage&amp;sa=X&amp;ved=0ahUKEwi59Y385YX2AhXs4jgGHU8VB7MQ2ZgBCA8">தமிழ்</a>
+                </div>
+            </div>
+        </div>
+
+    </form>
+</div>
+
+<!-- FOOTER -->
+
+<footer>
+    <div class="location">
+        <p id="country"></p>
+    </div>
+    <div class="footer-content">
+    <ul class="footer-left">
+        <li><a href="https://about.google/?utm_source=google-LK&utm_medium=referral&utm_campaign=hp-footer&fg=1">About</a></li>
+        <li><a href="https://ads.google.com/intl/en_lk/home/?subid=ww-ww-et-g-awa-a-g_hpafoot1_1!o2&utm_source=google.com&utm_medium=referral&utm_campaign=google_hpafooter&fg=1">Advertising</a></li>
+        <li><a href="https://www.google.com/services/?subid=ww-ww-et-g-awa-a-g_hpbfoot1_1!o2&utm_source=google.com&utm_medium=referral&utm_campaign=google_hpbfooter&fg=1#?modal_active=none">Business</a></li>
+        <li><a href="https://www.google.com/search/howsearchworks/?fg=1">How Search works</a></li>
+    </ul>
+    <ul class="footer-right">
+        <li><a href="https://policies.google.com/privacy?hl=en-LK&fg=1">Privacy</a></li>
+        <li><a href="https://policies.google.com/terms?hl=en-LK&fg=1">Terms</a></li>
+        <li><a href="#">Settings</a></li>
+    </ul>
+    </div>
+</footer>
+</body>
+<script>
+    var request = new XMLHttpRequest();
+
+    request.open('GET', 'https://api.ipdata.co/country_name?api-key=34f6054f2a5acac1486127270b117661b0b71dd0c6b55371e5705e17');
+
+    request.setRequestHeader('Accept', 'application/json');
+
+    request.onreadystatechange = function () {
+        if (this.readyState === 4) {
+            console.log(this.responseText);
+            document.getElementById("country").innerHTML = this.responseText
+        }
+    };
+
+    request.send();
+</script>
+<!--<script>-->
+<!--    $.get("http://ipinfo.io", function (response) {-->
+<!--        $("#country").html(response.country);-->
+<!--    }, "jsonp");-->
+<!--</script>-->
+</html>
